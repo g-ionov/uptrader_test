@@ -1,0 +1,8 @@
+{% load extra_tags %}
+
+{% if menu %}
+    {% draw_recursive_nested_list menu  as list %}
+    {{ list|safe }}
+{% else %}
+    <p>There are no menu items to display</p>
+{% endif %}
