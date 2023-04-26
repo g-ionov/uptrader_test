@@ -13,9 +13,9 @@ def draw_recursive_nested_list(menu_tree: list) -> str:
     """
     result = '<ul>'
     for item in menu_tree:
-        if item is not None:
+        if item:
             result += f'<li><a href="?menu_item={item["url"]}">{item["name"]}</a>'
-            result += draw_recursive_nested_list(item['children'])
+            result += draw_recursive_nested_list(item['children']) if item.get('children') else ''
             result += '</li>'
     result += '</ul>'
     return result

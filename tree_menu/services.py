@@ -23,7 +23,7 @@ def build_tree(menu_items: QuerySet, active_item: str) -> list:
         return []
 
     if not active_item:
-        return [item for item in menu_items if item.parent_id is None]
+        return [{'name': item.name, 'url': item.url} for item in menu_items if item.parent_id is None]
 
     parents = dict()
     parents = {child.parent_id: [] for child in menu_items if child.parent_id not in parents}
